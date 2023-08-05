@@ -1,0 +1,40 @@
+---
+export interface Props {
+  key: string;
+  name: string;
+  label: string;
+  value?: string;
+  type?: 'text' | 'email' | 'number' | 'checkbox' | 'radio';
+}
+
+const { key, name, label, value, type = 'text' } = Astro.props as Props;
+---
+
+<div class={['fieldset', type === 'checkbox' ? 'checkbox' : null].join(' ')}>
+  <label for={key}>{label}</label>
+  <input type={type} name={name} id={key} value={value} />
+</div>
+
+<style>
+  .fieldset {
+    display: flex;
+    gap: 1rem;
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .fieldset.checkbox {
+    gap: 1rem;
+    flex-direction: row-reverse;
+    justify-content: flex-end;
+    margin-bottom: 1rem;
+  }
+  .fieldset.checkbox:last-child {
+    margin-bottom: 0;
+  }
+
+  input[type='text'] {
+    padding: 0.75rem;
+    border: none;
+  }
+</style>

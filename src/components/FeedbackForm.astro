@@ -1,59 +1,142 @@
 ---
+import Fieldset from './Fieldset.astro';
 ---
 
-  <p>Here's an example of a Netlify Form! When you fill this out, the submissions can be found in the Netlify Admin site.</p>
-  <div class="feedback-form">
-      <form
-        netlify
-        netlify-honeypot
-        name="feedback"
-        method="POST"
-        action="/success"
-      >
-        <p class="hidden">
-          <label>
-            Don’t fill this out if you’re human: <input name="bot-field" />
-          </label>
+<div class="feedback-form">
+  <form
+    netlify
+    netlify-honeypot
+    name="feedback"
+    method="POST"
+    action="/success"
+  >
+    <p class="hidden">
+      <label>
+        Don’t fill this out if you’re human: <input name="bot-field" />
+      </label>
+    </p>
+    <Fieldset
+      key="participation"
+      name="participation"
+      value="ja"
+      type="checkbox"
+      label="Ja, ich komme gerne zur m+m Hausmesse 2023."
+    />
+
+    <div class="fields" style="margin-top:2rem">
+      <Fieldset key="fullname" label="Vorname und Name" name="fullname" />
+      <Fieldset key="company" label="Firma" name="company" />
+      <Fieldset key="position" label="Position" name="position" />
+      <Fieldset key="phone" label="Telefon" name="phone" />
+      <Fieldset key="email" label="E-Mail" name="email" />
+    </div>
+
+    <div class="fields interview">
+      <div>
+        <p><strong>Ich möchte den Vortrag / das Interview besuchen:</strong></p>
+        <Fieldset
+          type="checkbox"
+          key="interview1"
+          label="Benedikt Böhm um 11:00 Uhr"
+          value="boehm"
+          name="interview[]"
+        />
+        <Fieldset
+          type="checkbox"
+          key="interview2"
+          label="Marcel Reif um 13:15 Uhr"
+          value="reif"
+          name="interview[]"
+        />
+      </div>
+      <div>
+        <p><strong>Ich komme in Begleitung folgender Person(en):</strong></p>
+        <Fieldset
+          key="companion1"
+          label="Vorname, Name und Position"
+          name="companion[]"
+        /><br />
+        <Fieldset
+          key="companion2"
+          label="Vorname, Name und Position"
+          name="companion[]"
+        />
+        <button type="submit">Absenden</button>
+        <p>
+          <small>
+            <strong>Hinweise zum Datenschutz</strong><br /><br />
+             Die von Ihnen angegebenen Daten werden mit dem Versenden dieses
+            Kontaktformulars elektronisch erfasst, gespeichert und verarbeitet.
+            Ihre Daten werden ausschließlich zur Bearbeitung Ihrer Anfrage
+            verwendet. Weitere Informationen finden sie in der
+            Datenschutzerklärung.
+          </small>
         </p>
-        <input type="hidden" name="form-name" value="feedback" />
+      </div>
+    </div>
+    <!-- <input type="hidden" name="form-name" value="feedback" />
         <label for="name">Name</label>
         <input id="name" type="text" name="name" />
         <label for="email">Email</label>
         <input id="email" type="email" name="email" required />
         <label for="feedback">What is your feedback?</label>
         <textarea id="feedback" wrap="soft" name="feedback" required></textarea>
-        <button type="submit">Submit</button>
-      </form>
-  </div>
+        <button type="submit">Submit</button> -->
+  </form>
+</div>
 
 <style>
-  .feedback-form {
+  .fields {
+    display: flex;
+    gap: 2rem;
+    flex-wrap: wrap;
+  }
+
+  .interview {
+    margin-top: 4rem;
+  }
+
+  :global(.fields > div) {
+    flex-basis: calc(50% - 1rem);
+
+    /* width: calc(50% - 0.5rem); */
+  }
+
+  button[type='submit'] {
+    margin-top: 3rem;
+    border: none;
+    padding: 0.75rem 2rem;
+    color: var(--color-text-negative);
+    background: var(--color-accent);
+    font-size: var(--font-size-base);
+  }
+
+  /* .feedback-form {
   margin: 40px 40px;
   min-width: 250px;
   width: 45%;
-}
-input,
+} */
+  /* input,
 textarea,
 button {
   font-size: inherit;
   margin: 15px 0;
   padding: 12px 20px;
   width: 100%;
-}
-button {
+} */
+  /* button {
   background-color: teal;
   border: 1px solid black;
   color: white;
   width: 50%;
-}
-.hidden {
-  clip: rect(0 0 0 0);
-  clip-path: inset(50%);
-  height: 1px;
-  overflow: hidden;
-  position: absolute;
-  white-space: nowrap;
-  width: 1px;
-}
+} */
+  .hidden {
+    clip: rect(0 0 0 0);
+    clip-path: inset(50%);
+    height: 1px;
+    overflow: hidden;
+    position: absolute;
+    white-space: nowrap;
+    width: 1px;
+  }
 </style>
-
