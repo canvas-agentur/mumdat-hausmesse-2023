@@ -9,6 +9,7 @@ import Fieldset from './Fieldset.astro';
     name="feedback"
     method="POST"
     action="/success"
+    id="messe-form"
   >
     <p class="hidden">
       <label>
@@ -93,20 +94,18 @@ import Fieldset from './Fieldset.astro';
 
 <style>
   .fields {
-    display: flex;
+    display: grid;
     gap: 2rem;
-    flex-wrap: wrap;
+    grid-template-columns: repeat(auto-fit, minmax(30ch, 1fr));
   }
 
   .interview {
     margin-top: 4rem;
   }
 
-  :global(.fields > div) {
+  /* :global(.fields > div) {
     flex-basis: calc(50% - 1rem);
-
-    /* width: calc(50% - 0.5rem); */
-  }
+  } */
 
   button[type='submit'] {
     margin-top: 3rem;

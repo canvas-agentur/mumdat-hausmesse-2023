@@ -6,13 +6,29 @@ export interface Props {
 const { title } = Astro.props as Props;
 ---
 
-<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />
     <!-- <link rel="icon" type="image/x-icon" href="/favicon.ico" /> -->
     <title>{title}</title>
+    <script>
+      const IFRAME_ID = new URL(window.location).searchParams.get('frameId');
+      const notifyParent = () => {
+        const form = document.querySelector('#messe-form');
+        window.parent.postMessage(
+          {
+            height: form.scrollHeight(),
+            frameId: IFRAME_ID,
+          },
+          '*',
+        );
+      };
+      window.addEventListener('resize', () => notifyParent());
+      window.setInterval(notifyParent, 1000);
+      window.setTimeout(notifyParent, 300);
+      notifyParent();
+    </script>
   </head>
   <body>
     <slot />
