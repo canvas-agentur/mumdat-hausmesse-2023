@@ -21,14 +21,20 @@ import Fieldset from './Fieldset.astro';
       value="ja"
       type="checkbox"
       label="Ja, ich komme gerne zur m+m Hausmesse 2023."
+      required
     />
 
     <div class="fields" style="margin-top:2rem">
-      <Fieldset key="fullname" label="Vorname und Name" name="fullname" />
+      <Fieldset
+        key="fullname"
+        label="Vorname und Name"
+        name="fullname"
+        required
+      />
       <Fieldset key="company" label="Firma" name="company" />
       <Fieldset key="position" label="Position" name="position" />
       <Fieldset key="phone" label="Telefon" name="phone" />
-      <Fieldset key="email" label="E-Mail" name="email" />
+      <Fieldset key="email" label="E-Mail" name="email" type="email" required />
     </div>
 
     <div class="fields interview">
@@ -38,15 +44,15 @@ import Fieldset from './Fieldset.astro';
           type="checkbox"
           key="interview1"
           label="Benedikt Böhm um 11:00 Uhr"
-          value="boehm"
-          name="interview[]"
+          value="ja"
+          name="interview1"
         />
         <Fieldset
           type="checkbox"
           key="interview2"
           label="Marcel Reif um 13:15 Uhr"
-          value="reif"
-          name="interview[]"
+          value="ja"
+          name="interview2"
         />
       </div>
       <div>
@@ -54,12 +60,12 @@ import Fieldset from './Fieldset.astro';
         <Fieldset
           key="companion1"
           label="Vorname, Name und Position"
-          name="companion[]"
+          name="companion1"
         /><br />
         <Fieldset
           key="companion2"
           label="Vorname, Name und Position"
-          name="companion[]"
+          name="companion2"
         />
         <button type="submit">Absenden</button>
         <p>

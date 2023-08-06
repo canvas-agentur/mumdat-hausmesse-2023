@@ -5,14 +5,22 @@ export interface Props {
   label: string;
   value?: string;
   type?: 'text' | 'email' | 'number' | 'checkbox' | 'radio';
+  required?: boolean;
 }
 
-const { key, name, label, value, type = 'text' } = Astro.props as Props;
+const {
+  key,
+  name,
+  label,
+  value,
+  type = 'text',
+  required = false,
+} = Astro.props as Props;
 ---
 
 <div class={['fieldset', type === 'checkbox' ? 'checkbox' : null].join(' ')}>
   <label for={key}>{label}</label>
-  <input type={type} name={name} id={key} value={value} />
+  <input type={type} name={name} id={key} value={value} required={required} />
 </div>
 
 <style>
@@ -33,7 +41,8 @@ const { key, name, label, value, type = 'text' } = Astro.props as Props;
     margin-bottom: 0;
   }
 
-  input[type='text'] {
+  input[type='text'],
+  input[type='email'] {
     padding: 0.75rem;
     border: none;
   }
