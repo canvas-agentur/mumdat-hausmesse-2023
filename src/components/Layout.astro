@@ -12,6 +12,10 @@ const { title } = Astro.props as Props;
     <meta name="viewport" content="width=device-width" />
     <!-- <link rel="icon" type="image/x-icon" href="/favicon.ico" /> -->
     <title>{title}</title>
+  </head>
+  <body>
+    <slot />
+
     <script>
       const IFRAME_ID = new URL(window.location).searchParams.get('frameId');
       const notifyParent = () => {
@@ -29,9 +33,6 @@ const { title } = Astro.props as Props;
       window.setTimeout(notifyParent, 300);
       notifyParent();
     </script>
-  </head>
-  <body>
-    <slot />
   </body>
 </html>
 
