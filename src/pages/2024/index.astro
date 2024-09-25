@@ -7,7 +7,7 @@ import FeedbackForm from './FeedbackForm.astro';
   <main id="main">
     <div class="header">
       <div class="teaser">
-        <img src="/2023-07-18_MM_Landingpage_Messe_Heaader_crop_lg.png" />
+        <img src="/2024-09-23_MM_Landingpage_Messe_Heaader.webp" />
       </div>
     </div>
     <div class="intro">
@@ -18,11 +18,17 @@ import FeedbackForm from './FeedbackForm.astro';
 </Layout>
 
 <style>
-  /* :root {
-    text-align: center;
-  } */
-  .teaser img {
+  :root {
+    --color-bg: hsl(210, 55%, 13%);
+    --color-accent: hsl(198, 100%, 45%);
+    --color-text: hsl(0, 0%, 100%);
+  }
+
+  .teaser {
     padding: 30px 0;
+  }
+  
+  .teaser img {
     width: 100%;
   }
 

@@ -52,29 +52,29 @@ const {
         <p><strong>Ich möchte den Vortrag / das Interview besuchen:</strong></p>
         <Fieldset
           type="checkbox"
-          key="interview1"
-          label="TBA"
-          value="ja"
-          name="interview1"
+          key="timeslot11"
+          label="um 11:00 Uhr"
+          value="11"
+          name="timeslot11"
         />
         <Fieldset
           type="checkbox"
-          key="interview2"
-          label="TBA"
-          value="ja"
-          name="interview2"
+          key="timeslot14"
+          label="um 14:00 Uhr"
+          value="14"
+          name="timeslot14"
         />
       </div>
       <div>
         <p><strong>Ich komme in Begleitung folgender Person(en):</strong></p>
         <Fieldset
           key="companion1"
-          label="1. Vorname, Name und Position"
+          label="Vorname, Name und Position"
           name="companion1"
         /><br />
         <Fieldset
           key="companion2"
-          label="2. Vorname, Name und Position"
+          label="Vorname, Name und Position"
           name="companion2"
         />
         <button type="submit">Absenden</button>
@@ -104,7 +104,7 @@ const {
 <style>
   .fields {
     display: grid;
-    gap: 2rem;
+    gap: 1.5rem;
     grid-template-columns: repeat(auto-fit, minmax(30ch, 1fr));
   }
 
