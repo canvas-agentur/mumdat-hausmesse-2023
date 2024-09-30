@@ -45,25 +45,33 @@ const {
       <Fieldset key="position" label="Position" name="position" />
       <Fieldset key="phone" label="Telefon" name="phone" />
       <Fieldset key="email" label="E-Mail" name="email" type="email" required />
+      <p><small>Beachten Sie bitte, dass wir am Messetag Fotos machen und diese zu Veröffentlichungszwecken nutzen werden.</small></p>
     </div>
 
     <div class="fields interview">
       <div>
-        <p><strong>Ich möchte den Vortrag / das Interview besuchen:</strong></p>
-        <Fieldset
-          type="checkbox"
-          key="timeslot11"
-          label="um 11:00 Uhr"
-          value="11"
-          name="timeslot11"
-        />
-        <Fieldset
-          type="checkbox"
-          key="timeslot14"
-          label="um 14:00 Uhr"
-          value="14"
-          name="timeslot14"
-        />
+        <div>
+          <p><strong>Ich möchte den Vortrag / das Interview besuchen:</strong></p>
+          <Fieldset
+           type="checkbox"
+            key="timeslot11"
+            label="um 11:00 Uhr"
+            value="11"
+            name="timeslot11"
+          />
+          <Fieldset
+            type="checkbox"
+            key="timeslot14"
+            label="um 14:00 Uhr"
+            value="14"
+            name="timeslot14"
+          />
+        </div>
+        <div style="margin-top: 6rem;">
+          <p>ab 16:00 Uhr<br /></p>
+          <p>Wir laden Sie herzlich ein, gemeinsam mit uns den Messeabend ausklingen zu lassen.</p>
+
+        </div>
       </div>
       <div>
         <p><strong>Ich komme in Begleitung folgender Person(en):</strong></p>
@@ -123,6 +131,10 @@ const {
     color: var(--color-text-negative);
     background: var(--color-accent);
     font-size: var(--font-size-base);
+  }
+
+  .text {
+    font-size: var(--font-size-sm);
   }
 
   /* .feedback-form {
