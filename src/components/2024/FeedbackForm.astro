@@ -26,6 +26,14 @@ const {
         Don’t fill this out if you’re human: <input name="bot-field" />
       </label>
     </p>
+    
+    <div style="margin-bottom: 2rem;">
+      <p>
+        Ab 16 Uhr laden wir Sie herzlich ein gemeinsam mit <br>
+        uns den Messeabend ausklingen zu lassen.
+      </p>
+    </div>
+
     <Fieldset
       key="participation"
       name="participation"
@@ -46,13 +54,23 @@ const {
       <Fieldset key="position" label="Position" name="position" />
       <Fieldset key="phone" label="Telefon" name="phone" />
       <Fieldset key="email" label="E-Mail" name="email" type="email" required />
-      <p><small>Beachten Sie bitte, dass wir am Messetag Fotos machen und diese zu Veröffentlichungszwecken nutzen werden.</small></p>
+      <div>
+      <p><small>Beachten Sie bitte, dass:</small></p>
+      <ul>
+        <li><small>
+        die Einladungskarten nicht übertragbar sind
+        </small></li>
+        <li><small>
+        wir am Messetag Fotos machen und diese zu Veröffentlichungszwecken nutzen werden.
+        </small></li>
+      </ul>
+        </div>
     </div>
 
     <div class="fields interview">
       <div>
         <div>
-          <p><strong>Ich möchte den Vortrag / das Interview besuchen:</strong></p>
+          <p><strong>Ich möchte den Vortag von Herrn Prof. Dr. Peter Gentsch besuchen:</strong></p>
           <Fieldset
            type="checkbox"
             key="timeslot11"
@@ -67,11 +85,6 @@ const {
             value="Ja"
             name="timeslot14"
           />
-        </div>
-        <div style="margin-top: 5rem;">
-          <p>ab 16:00 Uhr<br /></p>
-          <p>Wir laden Sie herzlich ein, gemeinsam mit uns den Messeabend ausklingen zu lassen.</p>
-
         </div>
       </div>
       <div>
