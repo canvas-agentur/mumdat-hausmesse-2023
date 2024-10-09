@@ -9,6 +9,8 @@ const {
   formname,
 } = Astro.props as Props;
 
+const companionCount = 5;
+
 ---
 
 <div class="feedback-form">
@@ -88,16 +90,13 @@ const {
       </div>
       <div>
         <p><strong>Ich komme in Begleitung folgender Person(en):</strong></p>
-        <Fieldset
-          key="companion1"
-          label="1. Vorname, Name und Position"
-          name="companion1"
-        /><br />
-        <Fieldset
-          key="companion2"
-          label="2. Vorname, Name und Position"
-          name="companion2"
-        />
+        {Array.from({ length: companionCount }).map((_, index) => (
+          <Fieldset
+            key={`companion${index + 1}`}
+            label={`${index + 1}. Vorname, Name und Position`}
+            name={`companion${index + 1}`}
+          /><br />
+        ))}
         <button type="submit">Absenden</button>
         <p>
           <small>
